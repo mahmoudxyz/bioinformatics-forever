@@ -1,0 +1,13 @@
+[book]
+authors = ["mahmoudxyz2"]
+language = "en"
+src = "src"
+title = "Bioinformatics Forever"
+
+[output.html]
+smart-punctuation = true
+mathjax-support = true
+site-url = "/mdBook/"
+git-repository-url = "https://github.com/mahmoudxyz/bioinformatics-forever"
+edit-url-template = "https://github.com/mahmoudxyz/bioinformatics-forever/{path}"
+hash-files = true
