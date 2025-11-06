@@ -686,3 +686,736 @@ A file is three things:
 There's no link between the hierarchy of directories and their location on the disk.
 
 For more details, see: [Linux Foundation FHS 3.0](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html)
+
+
+## Shell Scripts (Bash Scripting)
+
+A **shell script** is simply a collection of commands written in a text file. That's it. Nothing magical.
+
+The original name was "shell script," but when GNU created **bash** (Bourne Again SHell), the term "bash script" became common.
+
+## Why Shell Scripts Matter
+
+**1. Automation**  
+If you're typing the same commands repeatedly, write them once in a script.
+
+**2. Portability**  
+Scripts work across different Linux machines and distributions (mostly).
+
+**3. Scheduling**  
+Combine scripts with cron jobs to run tasks automatically.
+
+**4. DRY Principle**  
+Don't Repeat Yourself - write once, run many times.
+
+**Important:** Nothing new here. Everything you've already learned about Linux commands applies. Shell scripts just let you organize and automate them.
+
+---
+
+## Creating Your First Script
+
+Create a file called `first-script.sh`:
+
+```bash
+$ nano first-script.sh
+```
+
+Write some commands:
+```bash
+echo "Hello, World"
+```
+
+**Note:** The `.sh` extension doesn't technically matter in Linux (unlike Windows), but it's convention. Use it so humans know it's a shell script.
+
+---
+
+## Making Scripts Executable
+
+Check the current permissions:
+
+```bash
+$ ls -l first-script.sh
+```
+
+Output:
+```
+-rw-rw-r-- 1 mahmoudxyz mahmoudxyz 21 Nov  6 07:21 first-script.sh
+```
+
+Notice: **No `x` (execute) permission**. The file isn't executable yet.
+
+### Adding Execute Permission
+
+```bash
+$ chmod +x first-script.sh
+```
+
+**Permission options:**
+- `u+x` - Execute for user (owner) only
+- `g+x` - Execute for group only
+- `o+x` - Execute for others only
+- `a+x` or just `+x` - Execute for all (user, group, others)
+
+Check permissions again:
+```bash
+$ ls -l first-script.sh
+```
+
+Output:
+```
+-rwxrwxr-x 1 mahmoudxyz mahmoudxyz 21 Nov  6 07:21 first-script.sh
+```
+
+Now we have `x` for user, group, and others.
+
+---
+
+## Running Shell Scripts
+
+There are two main ways to execute a script:
+
+### Method 1: Specify the Shell
+
+```bash
+$ sh first-script.sh
+```
+
+Or:
+```bash
+$ bash first-script.sh
+```
+
+This explicitly tells which shell to use.
+
+### Method 2: Direct Execution
+
+```bash
+$ ./first-script.sh
+```
+
+**Why the `./` ?**
+
+Let's try without it:
+```bash
+$ first-script.sh
+```
+
+You'll get an error:
+```
+first-script.sh: command not found
+```
+
+**Why?** When you type a command without a path, the shell searches through directories listed in `$PATH` looking for that command. Your current directory (`.`) is usually **NOT** in `$PATH` for security reasons.
+
+**The `./` explicitly says:** "Run the script in the current directory (`.`), don't search $PATH."
+
+### Adding Current Directory to PATH (NOT RECOMMENDED)
+
+You *could* do this:
+```bash
+$ PATH=.:$PATH
+```
+
+Now `first-script.sh` would work without `./`, but **DON'T DO THIS**. It's a security risk - you might accidentally execute malicious scripts in your current directory.
+
+**Best practices:**
+1. Use `./script.sh` for local scripts
+2. Put system-wide scripts in `/usr/local/bin` (which IS in $PATH)
+
+---
+
+## The Shebang Line
+
+Problem: How does the system know which interpreter to use for your script? Bash? Zsh? Python?
+
+Solution: The **shebang** (`#!`) on the first line.
+
+### Basic Shebang
+
+```bash
+#!/bin/bash
+echo "Hello, World"
+```
+
+**What this means:**  
+"Execute this script using `/bin/bash`"
+
+When you run `./first-script.sh`, the system:
+1. Reads the first line
+2. Sees `#!/bin/bash`
+3. Runs `/bin/bash first-script.sh`
+
+### Shebang with Other Languages
+
+You can use shebang for any interpreted language:
+
+```python
+#!/usr/bin/python3
+print("Hello, World")
+```
+
+Now this file runs as a Python script!
+
+### The Portable Shebang
+
+**Problem:** What if bash isn't at `/bin/bash`? What if python3 is at `/usr/local/bin/python3` instead of `/usr/bin/python3`?
+
+**Solution:** Use `env` to find the interpreter:
+
+```bash
+#!/usr/bin/env bash
+echo "Hello, World"
+```
+
+Or for Python:
+```python
+#!/usr/bin/env python3
+print("Hello, World")
+```
+
+**How it works:**  
+`env` searches through `$PATH` to find the command. The shebang becomes: "Please find (`env`) where `bash` is located and execute this script with it."
+
+**Why `env` is better:**
+- More portable across systems
+- Finds interpreters wherever they're installed
+- `env` itself is almost always at `/usr/bin/env`
+
+---
+
+## Basic Shell Syntax
+
+### Command Separators
+
+**Semicolon (`;`) - Run commands sequentially:**
+```bash
+$ echo "Hello" ; ls
+```
+
+This runs `echo`, then runs `ls` (regardless of whether `echo` succeeded).
+
+**AND (`&&`) - Run second command only if first succeeds:**
+```bash
+$ echo "Hello" && ls
+```
+
+If `echo` succeeds (exit code 0), then run `ls`. If it fails, stop.
+
+**OR (`||`) - Run second command only if first fails:**
+```bash
+$ false || ls
+```
+
+If `false` fails (exit code non-zero), then run `ls`. If it succeeds, stop.
+
+**Practical example:**
+```bash
+$ cd /some/directory && echo "Changed directory successfully"
+```
+Only prints the message if `cd` succeeded.
+
+```bash
+$ cd /some/directory || echo "Failed to change directory"
+```
+Only prints the message if `cd` failed.
+
+---
+
+## Variables
+
+Variables store data that you can use throughout your script.
+
+### Declaring Variables
+
+```bash
+#!/bin/bash
+
+# Integer variable
+declare -i sum=16
+
+# String variable
+declare name="Mahmoud"
+
+# Constant (read-only)
+declare -r PI=3.14
+
+# Array
+declare -a names=()
+names[0]="Alice"
+names[1]="Bob"
+names[2]="Charlie"
+```
+
+**Key points:**
+- `declare -i` = integer type
+- `declare -r` = read-only (constant)
+- `declare -a` = array
+- You can also just use `sum=16` without `declare` (it works, but less explicit)
+
+### Using Variables
+
+**Access variables with `$`:**
+
+```bash
+echo $sum          # Prints: 16
+echo $name         # Prints: Mahmoud
+echo $PI           # Prints: 3.14
+```
+
+**For arrays and complex expressions, use `${}`:**
+
+```bash
+echo ${names[0]}   # Prints: Alice
+echo ${names[1]}   # Prints: Bob
+echo ${names[2]}   # Prints: Charlie
+```
+
+**Why `${}` matters:**
+```bash
+echo "$nameTest"   # Looks for variable called "nameTest" (doesn't exist)
+echo "${name}Test" # Prints: MahmoudTest (correct!)
+```
+
+### Important Script Options
+
+```bash
+set -e
+```
+
+**What it does:** Exit script immediately if any command fails (non-zero exit code).
+
+**Why it matters:** Prevents cascading errors. If step 1 fails, don't continue to step 2.
+
+**Example without `set -e`:**
+```bash
+cd /nonexistent/directory
+rm -rf *  # DANGER! This still runs even though cd failed
+```
+
+**Example with `set -e`:**
+```bash
+set -e
+cd /nonexistent/directory  # Script stops here if this fails
+rm -rf *                   # Never executes
+```
+
+### Exit Codes
+
+Every command returns an exit code:
+- `0` = Success
+- Non-zero = Failure (different numbers mean different errors)
+
+**Check the last command's exit code:**
+```bash
+$ true
+$ echo $?   # Prints: 0
+
+$ false
+$ echo $?   # Prints: 1
+```
+
+**In scripts, explicitly exit with a code:**
+```bash
+#!/bin/bash
+echo "Script completed successfully"
+exit 0  # Return 0 (success) to the calling process
+```
+
+---
+
+## Arithmetic Operations
+
+There are multiple ways to do math in bash. **Pick one and stick with it** for consistency.
+
+### Method 1: `$(( ))` (Recommended)
+
+```bash
+#!/bin/bash
+
+num=4
+echo $((num * 5))      # Prints: 20
+echo $((num + 10))     # Prints: 14
+echo $((num ** 2))     # Prints: 16 (exponentiation)
+```
+
+**Operators:**
+- `+` addition
+- `-` subtraction
+- `*` multiplication
+- `/` integer division
+- `%` modulo (remainder)
+- `**` exponentiation
+
+**Pros:** Built into bash, fast, clean syntax  
+**Cons:** Integer-only (no decimals)
+
+### Method 2: `expr`
+
+```bash
+#!/bin/bash
+
+num=4
+expr $num + 6      # Prints: 10
+expr $num \* 5     # Prints: 20 (note the backslash before *)
+```
+
+**Pros:** Traditional, works in older shells  
+**Cons:** Awkward syntax, needs escaping for `*`
+
+### Method 3: `bc` (For Floating Point)
+
+```bash
+#!/bin/bash
+
+echo "4.5 + 2.3" | bc       # Prints: 6.8
+echo "10 / 3" | bc -l       # Prints: 3.33333... (-l for decimals)
+echo "scale=2; 10/3" | bc   # Prints: 3.33 (2 decimal places)
+```
+
+**Pros:** Supports floating-point arithmetic  
+**Cons:** External program (slower), more complex
+
+**My recommendation:** Use `$(( ))` for most cases. Use `bc` when you need decimals.
+
+---
+
+## Logical Operations and Conditionals
+
+### Exit Code Testing
+
+```bash
+#!/bin/bash
+
+true ; echo $?    # Prints: 0
+false ; echo $?   # Prints: 1
+```
+
+### Logical Operators
+
+```bash
+true && echo "True"     # Prints: True (because true succeeds)
+false || echo "False"   # Prints: False (because false fails)
+```
+
+### Comparison Operators
+
+There are TWO syntaxes for comparisons in bash. **Stick to one.**
+
+#### Option 1: `[[ ]]` with Comparison Operators (Modern, Recommended)
+
+**For integers:**
+```bash
+[[ 1 -le 2 ]]  # Less than or equal
+[[ 3 -ge 2 ]]  # Greater than or equal
+[[ 5 -lt 10 ]] # Less than
+[[ 8 -gt 4 ]]  # Greater than
+[[ 5 -eq 5 ]]  # Equal
+[[ 5 -ne 3 ]]  # Not equal
+```
+
+**For strings and mixed:**
+```bash
+[[ 3 == 3 ]]   # Equal
+[[ 3 != 4 ]]   # Not equal
+[[ 5 > 3 ]]    # Greater than (lexicographic for strings)
+[[ 2 < 9 ]]    # Less than (lexicographic for strings)
+```
+
+**Testing the result:**
+```bash
+[[ 3 == 3 ]] ; echo $?   # Prints: 0 (true)
+[[ 3 != 3 ]] ; echo $?   # Prints: 1 (false)
+[[ 5 > 3 ]] ; echo $?    # Prints: 0 (true)
+```
+
+#### Option 2: `test` Command (Traditional)
+
+```bash
+test 1 -le 5 ; echo $?   # Prints: 0 (true)
+test 10 -lt 5 ; echo $?  # Prints: 1 (false)
+```
+
+`test` is equivalent to `[ ]` (note: single brackets):
+```bash
+[ 1 -le 5 ] ; echo $?    # Same as test
+```
+
+**My recommendation:** Use `[[ ]]` (double brackets). It's more powerful and less error-prone than `[ ]` or `test`.
+
+### File Test Operators
+
+Check file properties:
+
+```bash
+test -f /etc/hosts ; echo $?     # Does file exist? (0 = yes)
+test -d /home ; echo $?           # Is it a directory? (0 = yes)
+test -r /etc/shadow ; echo $?    # Do I have read permission? (1 = no)
+test -w /tmp ; echo $?            # Do I have write permission? (0 = yes)
+test -x /usr/bin/ls ; echo $?    # Is it executable? (0 = yes)
+```
+
+**Common file tests:**
+- `-f` file exists and is a regular file
+- `-d` directory exists
+- `-e` exists (any type)
+- `-r` readable
+- `-w` writable
+- `-x` executable
+- `-s` file exists and is not empty
+
+**Using `[[ ]]` syntax:**
+```bash
+[[ -f /etc/hosts ]] && echo "File exists"
+[[ -r /etc/shadow ]] || echo "Cannot read this file"
+```
+
+---
+
+## Positional Parameters (Command-Line Arguments)
+
+When you run a script with arguments, bash provides special variables to access them.
+
+### Special Variables
+
+```bash
+#!/bin/bash
+
+# $0 - Name of the script itself
+# $# - Number of command-line arguments
+# $* - All arguments as a single string
+# $@ - All arguments as separate strings (array-like)
+# $1 - First argument
+# $2 - Second argument
+# $3 - Third argument
+# ... and so on
+```
+
+### Example Script
+
+```bash
+#!/bin/bash
+
+echo "Script name: $0"
+echo "Total number of arguments: $#"
+echo "All arguments: $*"
+echo "First argument: $1"
+echo "Second argument: $2"
+```
+
+**Running it:**
+```bash
+$ ./script.sh hello world 123
+```
+
+**Output:**
+```
+Script name: ./script.sh
+Total number of arguments: 3
+All arguments: hello world 123
+First argument: hello
+Second argument: world
+```
+
+### `$*` vs `$@`
+
+**`$*`** - Treats all arguments as a single string:
+```bash
+for arg in "$*"; do
+    echo $arg
+done
+# Output: hello world 123 (all as one)
+```
+
+**`$@`** - Treats arguments as separate items:
+```bash
+for arg in "$@"; do
+    echo $arg
+done
+# Output:
+# hello
+# world
+# 123
+```
+
+**Recommendation:** Use `"$@"` when looping through arguments.
+
+---
+
+## Functions
+
+Functions let you organize code into reusable blocks.
+
+### Basic Function
+
+```bash
+#!/bin/bash
+
+Hello() {
+    echo "Hello Functions!"
+}
+
+Hello  # Call the function
+```
+
+**Alternative syntax:**
+```bash
+function Hello() {
+    echo "Hello Functions!"
+}
+```
+
+Both work the same. Pick one style and be consistent.
+
+### Functions with Return Values
+
+```bash
+#!/bin/bash
+
+function Hello() {
+    echo "Hello Functions!"
+    return 0  # Success
+}
+
+function GetTimestamp() {
+    echo "The time now is $(date +%m/%d/%y' '%R)"
+    return 0
+}
+
+Hello
+echo "Exit code: $?"  # Prints: 0
+
+GetTimestamp
+```
+
+**Important:** `return` only returns exit codes (0-255), NOT values like other languages.
+
+To return a value, use `echo`:
+```bash
+function Add() {
+    local result=$(($1 + $2))
+    echo $result  # "Return" the value via stdout
+}
+
+sum=$(Add 5 3)  # Capture the output
+echo "Sum: $sum"  # Prints: Sum: 8
+```
+
+### Function Arguments
+
+Functions can take arguments like scripts:
+
+```bash
+#!/bin/bash
+
+Greet() {
+    echo "Hello, $1!"  # $1 is first argument to function
+}
+
+Greet "Mahmoud"  # Prints: Hello, Mahmoud!
+Greet "World"    # Prints: Hello, World!
+```
+
+---
+
+## Reading User Input
+
+### Basic `read` Command
+
+```bash
+#!/bin/bash
+
+echo "What is your name?"
+read name
+echo "Hello, $name!"
+```
+
+**How it works:**
+1. Script displays prompt
+2. Waits for user to type and press Enter
+3. Stores input in variable `name`
+
+### `read` with Inline Prompt
+
+```bash
+#!/bin/bash
+
+read -p "What is your name? " name
+echo "Hello, $name!"
+```
+
+**`-p` flag:** Display prompt on same line as input
+
+### Reading Multiple Variables
+
+```bash
+#!/bin/bash
+
+read -p "Enter your first and last name: " first last
+echo "Hello, $first $last!"
+```
+
+Input: `Mahmoud Xyz`  
+Output: `Hello, Mahmoud Xyz!`
+
+### Reading Passwords (Securely)
+
+```bash
+#!/bin/bash
+
+read -sp "Enter your password: " password
+echo ""  # New line after hidden input
+echo "Password received (length: ${#password})"
+```
+
+**`-s` flag:** Silent mode - doesn't display what user types  
+**`-p` flag:** Inline prompt
+
+**Security note:** This hides the password from screen, but it's still in memory as plain text. For real password handling, use dedicated tools.
+
+### Reading from Files
+
+```bash
+#!/bin/bash
+
+while read line; do
+    echo "Line: $line"
+done < /etc/passwd
+```
+
+Reads `/etc/passwd` line by line.
+
+---
+
+
+## Best Practices
+
+1. **Always use shebang:** `#!/usr/bin/env bash`
+2. **Use `set -e`:** Stop on errors
+3. **Use `set -u`:** Stop on undefined variables
+4. **Use `set -o pipefail`:** Catch errors in pipes
+5. **Quote variables:** Use `"$var"` not `$var` (prevents word splitting)
+6. **Check return codes:** Test if commands succeeded
+7. **Add comments:** Explain non-obvious logic
+8. **Use functions:** Break complex scripts into smaller pieces
+9. **Test thoroughly:** Run scripts in safe environment first
+
+### The Holy Trinity of Safety
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+```
+
+- `-e` exit on error
+- `-u` exit on undefined variable
+- `-o pipefail` exit on pipe failures
+
+---
+
+## About Course Materials
+
+**These notes contain NO copied course materials.** Everything here is my personal understanding and recitation of concepts, synthesized from publicly available resources (bash documentation, shell scripting tutorials, Linux guides).
+
+This is my academic work—how I've processed and reorganized information from legitimate sources. I take full responsibility for any errors in my understanding.
+
+**If you believe any content violates copyright, contact me at mahmoudahmedxyz@gmail.com and I'll remove it immediately.**

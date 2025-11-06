@@ -2,6 +2,27 @@
 
 Hello, I'm Mahmoud, and these are my notes. Since you're reading something I've written, I want to share a bit about how I approach learning and what you can expect here.
 
+This is me. My cousin captured this moment before they passed away.
+![alt text](images/me-with-cow.png)
+
+
+# A Word About AI
+
+I don't use AI for learning or creating the core content in these notes. If I did, there would be no point in making this as anyone can ask ChatGPT or Claude for explanations.
+
+**What I may use AI for:**
+- Proofreading and fixing grammar or typos
+- Reformatting text or code
+- Catching mistakes I missed
+
+**What I never use AI for:**
+- Understanding new concepts
+- Generating explanations or examples
+- Writing the actual content you're reading
+
+If you wanted AI-generated content, you wouldn't need these notes. You're here because sometimes learning from someone who's figuring it out alongside you is more helpful than learning from something that already knows everything.
+
+
 ## My Philosophy
 
 I believe there are no shortcuts to success. To me, success means respecting your time, and before investing that time, you need a plan rooted in where you want to go in life.

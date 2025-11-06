@@ -4,10 +4,17 @@ language = "en"
 src = "src"
 title = "Bioinformatics Forever"
 
+[preprocessor.pagetoc]
 [output.html]
 smart-punctuation = true
 mathjax-support = true
-site-url = "/mdBook/"
+site-url = "/bioinformatics-forever/"
 git-repository-url = "https://github.com/mahmoudxyz/bioinformatics-forever"
-edit-url-template = "https://github.com/mahmoudxyz/bioinformatics-forever/{path}"
+edit-url-template = "https://github.com/mahmoudxyz/bioinformatics-forever/edit/main/{path}"
 hash-files = true
+additional-css = ["theme/pagetoc.css"]
+additional-js  = ["theme/pagetoc.js"]
+
+
+
+
