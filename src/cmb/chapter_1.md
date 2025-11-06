@@ -2,15 +2,15 @@
 
 ## The History of Linux
 
-In 1880, the French government awarded the Volta Prize to Alexander Graham Bell. Instead of going to the Maldives (kidding—he had work to do), he went to America and opened Bell Labs.
+In 1880, the French government awarded the Volta Prize to Alexander Graham Bell. Instead of going to the Maldives (kidding...he had work to do), he went to America and opened Bell Labs.
 
-This lab researched electronics and something revolutionary called the mathematical theory of communications. In the 1950s came the transistor revolution. Bell Labs scientists won 10 Nobel Prizes—not too shabby.
+This lab researched electronics and something revolutionary called the mathematical theory of communications. In the 1950s came the transistor revolution. Bell Labs scientists won 10 Nobel Prizes...not too shabby.
 
-But around this time, Russia made the USA nervous by launching the first satellite, Sputnik, in 1957 (named after its "father" Sergei Korolev, though the satellite project itself was called Sputnik). This had nothing to do with operating systems—it was literally just a satellite beeping in space—but it scared America enough to kickstart the space race.
+But around this time, Russia made the USA nervous by launching the first satellite, Sputnik, in 1957. This had nothing to do with operating systems, it was literally just a satellite beeping in space, but it scared America enough to kickstart the space race.
 
 President Eisenhower responded by creating ARPA (Advanced Research Projects Agency) in 1958, and asked James Killian, MIT's president, to help develop computer technology. This led to Project MAC (Mathematics and Computation) at MIT.
 
-Before Project MAC, using a computer meant bringing a stack of punch cards with your instructions, feeding them into the machine, and waiting. During this time, no one else could use the computer—it was one job at a time.
+Before Project MAC, using a computer meant bringing a stack of punch cards with your instructions, feeding them into the machine, and waiting. During this time, no one else could use the computer, it was one job at a time.
 
 The big goal of Project MAC was to allow multiple programmers to use the same computer simultaneously, executing different instructions at the same time. This concept was called **time-sharing**.
 
@@ -18,33 +18,32 @@ MIT and Bell Labs cooperated and developed the first operating system to support
 
 In the late 1960s, GE and Bell Labs left the project. GE's computer department was bought by Honeywell, which continued the project with MIT and created a commercial version that sold for 25 years.
 
-In 1969, Bell Labs engineers (Dennis Ritchie and Ken Thompson) developed a new OS based on Multics. In 1970, they introduced **Unics** (later called **Unix**—the name was a sarcastic play on "Multics," implying it was simpler).
+In 1969, Bell Labs engineers (Dennis Ritchie and Ken Thompson) developed a new OS based on Multics. In 1970, they introduced **Unics** (later called **Unix**, the name was a sarcastic play on "Multics," implying it was simpler).
 
 The first two versions of Unix were written in assembly language, which was then translated by an assembler and linker into machine code. The big problem with assembly was that it was tightly coupled to specific processors, meaning you'd need to rewrite Unix for each processor architecture. So Dennis Ritchie decided to create a new programming language: **C**.
 
-They rebuilt Unix using C. At this time, AT&T owned Bell Labs (now it's Nokia). AT&T declared that Unix was theirs and no one else could touch it—classic monopolization.
+They rebuilt Unix using C. At this time, AT&T owned Bell Labs (now it's Nokia). AT&T declared that Unix was theirs and no one else could touch it, classic monopolization.
 
 AT&T did make one merciful agreement: universities could use Unix for educational purposes. But after AT&T was broken up into smaller companies in 1984, even this stopped. Things got worse.
 
-One person was watching all this and decided to take action: **Andrew S. Tanenbaum**. In 1987, he created a new Unix-inspired OS called **MINIX**. It was free for universities and designed to work on Intel chips. It had some issues—occasional crashes and overheating—but this was just the beginning. This was the first time someone made a Unix-like OS outside of AT&T.
+One person was watching all this and decided to take action: **Andrew S. Tanenbaum**. In 1987, he created a new Unix-inspired OS called **MINIX**. It was free for universities and designed to work on Intel chips. It had some issues, occasional crashes and overheating, but this was just the beginning. This was the first time someone made a Unix-like OS outside of AT&T.
 
-The main difference between Unix and MINIX was that MINIX was built on a **microkernel architecture**. Unix had a larger monolithic kernel, but MINIX separated some modules—for example, device drivers were moved from kernel space to user space.
+The main difference between Unix and MINIX was that MINIX was built on a **microkernel architecture**. Unix had a larger monolithic kernel, but MINIX separated some modules, for example, device drivers were moved from kernel space to user space.
 
 It's unclear if MINIX was truly open source, but people outside universities wanted access and wanted to contribute and modify it.
 
 Around the same time MINIX was being developed, another person named **Richard Stallman** started the free software movement based on four freedoms: Freedom to run, Freedom to study, Freedom to modify, and Freedom to share. This led to the GPL license (GNU General Public License), which ensured that if you used something free, your product must also be free. They created the **GNU Project**, which produced many important tools like the GCC compiler, Bash shell, and more.
 
-But there was one problem: the kernel—the beating heart of the operating system that talks to the hardware—was missing.
+But there was one problem: the kernel, the beating heart of the operating system that talks to the hardware, was missing.
 
 Let's leave the USA and cross the Atlantic Ocean. In Finland, a student named **Linus Torvalds** was stuck at home while his classmates vacationed in Baltim Egypt (kidding). He was frustrated with MINIX, had heard about GPL and GNU, and decided to make something new. "I know what I should do with my life," he thought. As a side hobby project in 1991, he started working on a new kernel (not based on MINIX) and sent an email to his classmates discussing it.
 
-Linus announced Freax (maybe meant "free Unix") with a GPL license. After six months, he released another version and called it **Linux**. He improved the kernel and integrated many GNU Project tools. He uploaded the source code to the internet (though Git came much later—he initially used FTP). This mini-project became the most widely used OS on Earth.
+Linus announced Freax (maybe meant "free Unix") with a GPL license. After six months, he released another version and called it **Linux**. He improved the kernel and integrated many GNU Project tools. He uploaded the source code to the internet (though Git came much later, he initially used FTP). This mini-project became the most widely used OS on Earth.
 
 The penguin mascot (Tux) came from multiple stories: Linus was supposedly bitten by a penguin at a zoo, and he also watched March of the Penguins and was inspired by how they cooperate and share to protect their eggs and each other. Cute and fitting.
 
 ...And that's the history intro.
 
----
 
 ## Linux Distributions
 
@@ -54,23 +53,23 @@ Here's the deal: the open-source part is the kernel, but different developers ta
 
 Some examples: Red Hat, Slackware, Debian.
 
-Even distros themselves can be modified with additional features, which creates a version of a version. For example, Debian led to Ubuntu—these are called **derivatives**.
+Even distros themselves can be modified with additional features, which creates a version of a version. For example, Debian led to Ubuntu, these are called **derivatives**.
 
 How many distros and derivatives exist in the world? Many. How many exactly? I said many. Anyone with a computer can create one.
 
 So what's the main difference between these distros, so I know which one is suitable for me? The main differences fall into two categories: **philosophical** and **technical**.
 
-One of the biggest technical differences is **package management**—the system that lets you install software, including the type and format of software itself.
+One of the biggest technical differences is **package management**, the system that lets you install software, including the type and format of software itself.
 
-Another difference is **configuration files**—their locations differ from one distro to another.
+Another difference is **configuration files**, their locations differ from one distro to another.
 
 We agreed that everything is free, right? Well, you may find some paid versions like **Red Hat Enterprise Linux**, which charges for features like an additional layer of security, professional support, and guaranteed upgrades. Fedora is also owned by Red Hat and acts as a testing ground (a "backdoor," if you will) for new features before they hit Red Hat Enterprise.
 
-The philosophical part is linked to the functional part. If you're using Linux for research, there are distros with specialized software for that. Maybe you're into ethical hacking—Kali Linux is for you. If you're afraid of switching from another OS, you might like Linux Mint, which even has themes that make it look like Windows.
+The philosophical part is linked to the functional part. If you're using Linux for research, there are distros with specialized software for that. Maybe you're into ethical hacking, Kali Linux is for you. If you're afraid of switching from another OS, you might like Linux Mint, which even has themes that make it look like Windows.
 
 Okay, which one should I install now? Heh... There are a ton of options and you can install any of them, but my preference is **Ubuntu**.
 
-Ubuntu is the most popular for development and data engineering. But remember—in all cases, you'll be using the terminal a lot. So install Ubuntu, maybe in dual boot, and keep Windows if possible so you don't regret it later and blame me.
+Ubuntu is the most popular for development and data engineering. But remember, in all cases, you'll be using the terminal a lot. So install Ubuntu, maybe in dual boot, and keep Windows if possible so you don't regret it later and blame me.
 
 ---
 
@@ -84,7 +83,7 @@ By default first thing you will see the prompt `name@host:path$` which your name
 
 You can change the colors and all preferences and save each for profile.
 
----
+You can even change the prompt itself as it is just a variable (more on variable later).
 
 ## Basic Commands
 
@@ -250,7 +249,7 @@ The same output. The order of options is not important so `ls -lFa` will work as
 
 ### [5] clear
 
-This cleans your terminal. You can also use shortcut `Ctrl+L`
+This cleans your terminal. You can also use shortcut `Ctrl+l`
 
 ### [6] mkdir
 
@@ -461,25 +460,24 @@ No manual entry for `cd`. I don't know why exactly, but it's probably because `c
 
 ## Unix Philosophy
 
-**Second System Syndrome:** If a software or system succeeds, any similar system that comes after it will likely fail. This is probably a psychological phenomenon—developers constantly compare themselves to the successful system, wanting to be like it but better. The fear of not matching that success often causes failure. Maybe you can succeed if you don't compare yourself to it.
+**Second System Syndrome:** If a software or system succeeds, any similar system that comes after it will likely fail. This is probably a psychological phenomenon, developers constantly compare themselves to the successful system, wanting to be like it but better. The fear of not matching that success often causes failure. Maybe you can succeed if you don't compare yourself to it.
 
-Another thing: when developers started making software for Linux, everything was chaotic and random. This led to the creation of principles to govern development—a philosophy to follow. These principles ensure that when you develop something, you follow the same Unix mentality:
+Another thing: when developers started making software for Linux, everything was chaotic and random. This led to the creation of principles to govern development, a philosophy to follow. These principles ensure that when you develop something, you follow the same Unix mentality:
 
 1. **Small is Beautiful** – Keep programs compact and focused; bloat is the enemy.
 2. **Each Program Does One Thing Well** – Master one task instead of being mediocre at many.
-3. **Prototype as Soon as Possible** – Build it, test it, break it, learn from it—fast iteration wins.
+3. **Prototype as Soon as Possible** – Build it, test it, break it, learn from it, fast iteration wins.
 4. **Choose Portability Over Efficiency** – Code that runs everywhere beats code that's blazing fast on one system.
 5. **Store Data in Flat Text Files** – Text is universal, readable, and easy to parse; proprietary formats lock you in.
 6. **Use Software Leverage** – Don't reinvent the wheel; use existing tools and combine them creatively.
 7. **Use Shell Scripts to Increase Leverage and Portability** – Automate tasks and glue programs together with simple scripts.
 8. **Avoid Captive User Interfaces** – Don't trap users in rigid menus; let them pipe, redirect, and automate.
-9. **Make Every Program a Filter** – Take input, transform it, produce output—programs should be composable building blocks.
+9. **Make Every Program a Filter** – Take input, transform it, produce output, programs should be composable building blocks.
 
-These concepts all lead to one fundamental Unix principle: **everything is a file**. Devices, processes, sockets—treat them all as files for consistency and simplicity.
+These concepts all lead to one fundamental Unix principle: **everything is a file**. Devices, processes, sockets, treat them all as files for consistency and simplicity.
 
 Not all people follow this now, but the important question is: is it important? I don't know. But still the question is: is it important for you as a data engineer or analyst who will deal with data and different distros and different computers which maybe will be remote? Yes, it is important and very important.
 
----
 
 ## Text Files
 
@@ -497,7 +495,6 @@ Simply put: `vi` is just two things, **insert mode** and **command mode**. The d
 
 Use any editor, probably `vi` or `nano` and start practicing on one.
 
----
 
 ## Terminal vs Shell
 
@@ -506,8 +503,6 @@ Use any editor, probably `vi` or `nano` and start practicing on one.
 The **shell** is the thing that actually interprets your commands. It's the engine doing the work. File manipulation, running programs, printing text. That's all the shell.
 
 The **terminal** is just the program that opens a window so you can talk to the shell. It's the middleman, the GUI wrapper, the pretty face.
-
----
 
 ## Pipes, Filters and Redirection
 
@@ -523,14 +518,14 @@ Unix processes have three standard streams:
 - **STDOUT (1)** – Standard Output (normal output going to terminal, file, etc.)
 - **STDERR (2)** – Standard Error (error messages going to terminal, file, etc.)
 
-**Example:** Try running `cat` with no arguments—it waits for input from STDIN and echoes it to STDOUT.
+**Example:** Try running `cat` with no arguments, it waits for input from STDIN and echoes it to STDOUT.
 
 - `Ctrl+D` – Stops the input stream and sends an EOF (End of File) signal to the process.
 - `Ctrl+C` – Sends an INT (Interrupt) signal to the process (i.e., kills the process).
 
 ### Redirection
 
-Redirection allows you to change the defaults for stdin, stdout, or stderr—sending them to different devices or files using their file descriptors.
+Redirection allows you to change the defaults for stdin, stdout, or stderr, sending them to different devices or files using their file descriptors.
 
 #### File Descriptors
 
@@ -607,7 +602,7 @@ $ cat err  # View both output and errors
 
 #### Ignoring Error Messages with `/dev/null`
 
-The black hole of Unix—anything sent here disappears:
+The black hole of Unix, anything sent here disappears:
 
 ```bash
 $ ls /xyz 2> /dev/null  # Suppress error messages
@@ -635,7 +630,6 @@ This is us.
 
 Each user has its ID, shell, environmental vars and home dir.
 
----
 
 ## File Ownership and Permissions
 
@@ -687,6 +681,599 @@ There's no link between the hierarchy of directories and their location on the d
 
 For more details, see: [Linux Foundation FHS 3.0](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html)
 
+## Managing Linux Processes
+
+### What is a Process?
+
+When Linux executes a program, it:
+1. Reads the file from disk
+2. Loads it into memory
+3. Reads the instructions inside it
+4. Executes them one by one
+
+A **process** is the running instance of that program. It might be visible in your GUI or running invisibly in the background.
+
+### Types of Processes
+
+Processes can be executed from different sources:
+
+**By origin:**
+- Compiled programs (C, C++, Rust, etc.)
+- Shell scripts containing commands
+- Interpreted languages (Python, Perl, etc.)
+
+**By trigger:**
+- Manually executed by a user
+- Scheduled (via cron or systemd timers)
+- Triggered by events or other processes
+
+**By category:**
+- **System processes** - Managed by the kernel
+- **User processes** - Started by users (manually, scheduled, or remotely)
+
+---
+
+### The Process Hierarchy
+
+Every Linux system starts with a **parent process** that spawns all other processes. This is either:
+- `init` or `sysvinit` (older systems)
+- `systemd` (modern systems)
+
+The first process gets **PID 1** (Process ID 1), even though it's technically branched from the kernel itself (PID 0, which you never see directly).
+
+From PID 1, all other processes branch out in a tree structure. Every process has:
+- **PID** (Process ID) - Its own unique identifier
+- **PPID** (Parent Process ID) - The ID of the process that started it
+
+---
+
+### Viewing Processes
+
+#### [1] `ps` - Process Snapshot
+
+**Basic usage - current terminal only:**
+```bash
+$ ps
+```
+
+Output:
+```
+    PID TTY          TIME CMD
+  14829 pts/1    00:00:00 bash
+  14838 pts/1    00:00:00 ps
+```
+
+This shows only processes running in your current terminal session for your user.
+
+**All users' processes:**
+```bash
+$ ps -a
+```
+
+Output:
+```
+    PID TTY          TIME CMD
+   2955 tty2     00:00:00 gnome-session-b
+  14971 pts/1    00:00:00 ps
+```
+
+**All processes in the system:**
+```bash
+$ ps -e
+```
+
+Output:
+```
+    PID TTY          TIME CMD
+      1 ?        00:00:00 systemd
+      2 ?        00:00:00 kthreadd
+      3 ?        00:00:00 rcu_gp
+    ... (hundreds more)
+```
+
+**Note:** The `?` in the TTY column means the process was started by the kernel and has no controlling terminal.
+
+**Detailed process information:**
+```bash
+$ ps -l
+```
+
+Output:
+```
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000   14829   14821  0  80   0 -  2865 do_wai pts/1    00:00:00 bash
+4 R  1000   15702   14829  0  80   0 -  3445 -      pts/1    00:00:00 ps
+```
+
+Here you can see the **PPID** (parent process ID). Notice that `ps` has bash as its parent (the PPID of ps matches the PID of bash).
+
+**Most commonly used:**
+```bash
+$ ps -efl
+```
+
+This shows all processes with full details - PID, PPID, user, CPU time, memory, and command.
+
+#### Understanding Daemons
+
+Any system process running in the background typically ends with **`d`** (named after "daemon"). Examples:
+- `systemd` - System and service manager
+- `sshd` - SSH server
+- `httpd` or `nginx` - Web servers
+- `crond` - Job scheduler
+
+Daemons are like Windows services - processes that run in the background, whether they're system or user processes.
+
+---
+
+#### [2] `pstree` - Process Tree Visualization
+
+See the hierarchy of all running processes:
+
+```bash
+$ pstree
+```
+
+Output:
+```
+systemd─┬─ModemManager───3*[{ModemManager}]
+        ├─NetworkManager───3*[{NetworkManager}]
+        ├─accounts-daemon───3*[{accounts-daemon}]
+        ├─avahi-daemon───avahi-daemon
+        ├─bluetoothd
+        ├─colord───3*[{colord}]
+        ├─containerd───15*[{containerd}]
+        ├─cron
+        ├─cups-browsed───3*[{cups-browsed}]
+        ├─cupsd───5*[dbus]
+        ├─dbus-daemon
+        ├─dockerd───19*[{dockerd}]
+        ├─fwupd───5*[{fwupd}]
+        ... (continues)
+```
+
+**What you're seeing:**
+- `systemd` is the parent process (PID 1)
+- Everything else branches from it
+- Multiple processes run in parallel
+- Some processes spawn their own children (like `dockerd` with 19 threads)
+
+This visualization makes it easy to understand process relationships.
+
+---
+
+#### [3] `top` - Live Process Monitor
+
+Unlike `ps` (which shows a snapshot), `top` shows **real-time** process information:
+
+```bash
+$ top
+```
+
+You'll see:
+- Processes sorted by CPU usage (by default)
+- Live updates of CPU and memory consumption
+- System load averages
+- Running vs sleeping processes
+
+**Press `q` to quit.**
+
+**Useful top commands while running:**
+- `k` - Kill a process (prompts for PID)
+- `M` - Sort by memory usage
+- `P` - Sort by CPU usage
+- `1` - Show individual CPU cores
+- `h` - Help
+
+---
+
+### [4] `htop` - Better Process Monitor
+
+`htop` is like `top` but modern, colorful, and more interactive.
+
+**Installation (if not already installed):**
+```bash
+$ which htop   # Check if installed
+$ sudo apt install htop   # Install if needed
+```
+
+**Run it:**
+```bash
+$ htop
+```
+
+**Features:**
+- Color-coded display
+- Mouse support (click to select processes)
+- Easy process filtering and searching
+- Visual CPU and memory bars
+- Tree view of process hierarchy
+- Built-in kill/nice/priority management
+
+**Navigation:**
+- Arrow keys to move
+- `F3` - Search for a process
+- `F4` - Filter by name
+- `F5` - Tree view
+- `F9` - Kill a process
+- `F10` or `q` - Quit
+
+---
+
+### Foreground vs Background Processes
+
+Sometimes you only have one terminal and want to run multiple long-running tasks. Background processes let you do this.
+
+### Foreground Processes (Default)
+
+When you run a command normally, it runs in the **foreground** and blocks your terminal:
+
+```bash
+$ sleep 10
+```
+
+Your terminal is blocked for 10 seconds. You can't type anything until it finishes.
+
+### Background Processes
+
+Add `&` at the end to run in the **background**:
+
+```bash
+$ sleep 10 &
+```
+
+Output:
+```
+[1] 12345
+```
+
+The terminal is immediately available. The numbers show `[job_number] PID`.
+
+### Managing Jobs
+
+**View running jobs:**
+```bash
+$ jobs
+```
+
+Output:
+```
+[1]+  Running                 sleep 10 &
+```
+
+**Bring a background job to foreground:**
+```bash
+$ fg
+```
+
+If you have multiple jobs:
+```bash
+$ fg %1   # Bring job 1 to foreground
+$ fg %2   # Bring job 2 to foreground
+```
+
+**Send current foreground process to background:**
+1. Press `Ctrl+Z` (suspends the process)
+2. Type `bg` (resumes it in background)
+
+Example:
+```bash
+$ sleep 25
+^Z
+[1]+  Stopped                 sleep 25
+
+$ bg
+[1]+ sleep 25 &
+
+$ jobs
+[1]+  Running                 sleep 25 &
+```
+
+---
+
+### Stopping Processes
+
+### Process Signals
+
+The `kill` command doesn't just "kill" - it sends **signals** to processes. The process decides how to respond.
+
+**Common signals:**
+
+| Signal | Number | Meaning | Process Can Ignore? |
+|--------|--------|---------|---------------------|
+| `SIGHUP` | 1 | Hang up (terminal closed) | Yes |
+| `SIGINT` | 2 | Interrupt (Ctrl+C) | Yes |
+| `SIGTERM` | 15 | Terminate gracefully (default) | Yes |
+| `SIGKILL` | 9 | Kill immediately | **NO** |
+| `SIGSTOP` | 19 | Stop/pause process | **NO** |
+| `SIGCONT` | 18 | Continue stopped process | **NO** |
+
+### Using `kill`
+
+**Syntax:**
+```bash
+$ kill -SIGNAL PID
+```
+
+**Example - find a process:**
+```bash
+$ ps
+    PID TTY          TIME CMD
+  14829 pts/1    00:00:00 bash
+  17584 pts/1    00:00:00 sleep
+  18865 pts/1    00:00:00 ps
+```
+
+**Try graceful termination first (SIGTERM):**
+```bash
+$ kill -SIGTERM 17584
+```
+
+Or use the number:
+```bash
+$ kill -15 17584
+```
+
+Or just use default (SIGTERM is default):
+```bash
+$ kill 17584
+```
+
+**If the process ignores SIGTERM, force kill (SIGKILL):**
+```bash
+$ kill -SIGKILL 17584
+```
+
+Or:
+```bash
+$ kill -9 17584
+```
+
+**Verify it's gone:**
+```bash
+$ ps
+    PID TTY          TIME CMD
+  14829 pts/1    00:00:00 bash
+  19085 pts/1    00:00:00 ps
+[2]+  Killed                  sleep 10
+```
+
+### Why SIGTERM vs SIGKILL?
+
+**SIGTERM (15) - Graceful shutdown:**
+- Process can clean up (save files, close connections)
+- Child processes are also terminated properly
+- **Always try this first**
+
+**SIGKILL (9) - Immediate death:**
+- Process cannot ignore or handle this signal
+- No cleanup happens
+- Can create **zombie processes** if parent doesn't reap children
+- Can cause memory leaks or corrupted files
+- **Use only as last resort**
+
+### Zombie Processes
+
+A **zombie** is a dead process that hasn't been cleaned up by its parent.
+
+**What happens:**
+1. Process finishes execution
+2. Kernel marks it as terminated
+3. Parent should read the exit status (called "reaping")
+4. If parent doesn't reap it, it becomes a zombie
+
+**Identifying zombies:**
+```bash
+$ ps aux | grep Z
+```
+
+Look for processes with state `Z` (zombie).
+
+**Fixing zombies:**
+- Kill the **parent process** (zombies are already dead)
+- The parent's death forces the kernel to reclassify zombies under `init`/`systemd`, which cleans them up
+- Or wait - some zombies disappear when the parent finally checks on them
+
+---
+
+### `killall` - Kill by Name
+
+Instead of finding PIDs, kill all processes with a specific name:
+
+```bash
+$ killall sleep
+```
+
+This kills **ALL** processes named `sleep`, regardless of their PID.
+
+**With signals:**
+```bash
+$ killall -SIGTERM firefox
+$ killall -9 chrome   # Force kill all Chrome processes
+```
+
+**Warning:** Be careful with `killall` - it affects all matching processes, even ones you might not want to kill.
+
+---
+
+### Managing Services with `systemctl`
+
+Modern Linux systems use **systemd** to manage services (daemons). The `systemctl` command controls them.
+
+### Service Status
+
+**Check if a service is running:**
+```bash
+$ systemctl status ssh
+```
+
+Output shows:
+- Active/inactive status
+- PID of the main process
+- Recent log entries
+- Memory and CPU usage
+
+### Starting and Stopping Services
+
+**Start a service:**
+```bash
+$ sudo systemctl start nginx
+```
+
+**Stop a service:**
+```bash
+$ sudo systemctl stop nginx
+```
+
+**Restart a service (stop then start):**
+```bash
+$ sudo systemctl restart nginx
+```
+
+**Reload configuration without restarting:**
+```bash
+$ sudo systemctl reload nginx
+```
+
+### Enable/Disable Services at Boot
+
+**Enable a service to start automatically at boot:**
+```bash
+$ sudo systemctl enable ssh
+```
+
+**Disable a service from starting at boot:**
+```bash
+$ sudo systemctl disable ssh
+```
+
+**Enable AND start immediately:**
+```bash
+$ sudo systemctl enable --now nginx
+```
+
+### Listing Services
+
+**List all running services:**
+```bash
+$ systemctl list-units --type=service --state=running
+```
+
+**List all services (running or not):**
+```bash
+$ systemctl list-units --type=service --all
+```
+
+**List enabled services:**
+```bash
+$ systemctl list-unit-files --type=service --state=enabled
+```
+
+### Viewing Logs
+
+**See logs for a specific service:**
+```bash
+$ journalctl -u nginx
+```
+
+**Follow logs in real-time:**
+```bash
+$ journalctl -u nginx -f
+```
+
+**See only recent logs:**
+```bash
+$ journalctl -u nginx --since "10 minutes ago"
+```
+
+---
+
+### Practical Examples
+
+### Example 1: Finding and Killing a Hung Process
+
+```bash
+# Find the process
+$ ps aux | grep firefox
+
+# Kill it gracefully
+$ kill 12345
+
+# Wait a few seconds, check if still there
+$ ps aux | grep firefox
+
+# Force kill if necessary
+$ kill -9 12345
+```
+
+### Example 2: Running a Long Script in Background
+
+```bash
+# Start a long-running analysis
+$ python analyze_genome.py &
+
+# Check it's running
+$ jobs
+
+# Do other work...
+
+# Bring it back to see output
+$ fg
+```
+
+### Example 3: Checking System Load
+
+```bash
+# See what's consuming resources
+$ htop
+
+# Or check load average
+$ uptime
+
+# Or see top CPU processes
+$ ps aux --sort=-%cpu | head
+```
+
+### Example 4: Restarting a Web Server
+
+```bash
+# Check status
+$ systemctl status nginx
+
+# Restart it
+$ sudo systemctl restart nginx
+
+# Check logs if something went wrong
+$ journalctl -u nginx -n 50
+```
+
+---
+
+### Summary: Process Management Commands
+
+| Command | Purpose |
+|---------|---------|
+| `ps` | Snapshot of processes |
+| `ps -efl` | All processes with details |
+| `pstree` | Process hierarchy tree |
+| `top` | Real-time process monitor |
+| `htop` | Better real-time monitor |
+| `jobs` | List background jobs |
+| `fg` | Bring job to foreground |
+| `bg` | Continue job in background |
+| `command &` | Run command in background |
+| `Ctrl+Z` | Suspend current process |
+| `kill PID` | Send SIGTERM to process |
+| `kill -9 PID` | Force kill process |
+| `killall name` | Kill all processes by name |
+| `systemctl status` | Check service status |
+| `systemctl start` | Start a service |
+| `systemctl stop` | Stop a service |
+| `systemctl restart` | Restart a service |
+| `systemctl enable` | Enable at boot |
+
+---
+
 
 ## Shell Scripts (Bash Scripting)
 
@@ -694,7 +1281,7 @@ A **shell script** is simply a collection of commands written in a text file. Th
 
 The original name was "shell script," but when GNU created **bash** (Bourne Again SHell), the term "bash script" became common.
 
-## Why Shell Scripts Matter
+### Why Shell Scripts Matter
 
 **1. Automation**  
 If you're typing the same commands repeatedly, write them once in a script.
@@ -712,7 +1299,7 @@ Don't Repeat Yourself - write once, run many times.
 
 ---
 
-## Creating Your First Script
+### Creating Your First Script
 
 Create a file called `first-script.sh`:
 
@@ -729,7 +1316,7 @@ echo "Hello, World"
 
 ---
 
-## Making Scripts Executable
+### Making Scripts Executable
 
 Check the current permissions:
 
@@ -770,11 +1357,11 @@ Now we have `x` for user, group, and others.
 
 ---
 
-## Running Shell Scripts
+### Running Shell Scripts
 
 There are two main ways to execute a script:
 
-### Method 1: Specify the Shell
+#### Method 1: Specify the Shell
 
 ```bash
 $ sh first-script.sh
@@ -787,7 +1374,7 @@ $ bash first-script.sh
 
 This explicitly tells which shell to use.
 
-### Method 2: Direct Execution
+#### Method 2: Direct Execution
 
 ```bash
 $ ./first-script.sh
@@ -824,7 +1411,7 @@ Now `first-script.sh` would work without `./`, but **DON'T DO THIS**. It's a sec
 
 ---
 
-## The Shebang Line
+### The Shebang Line
 
 Problem: How does the system know which interpreter to use for your script? Bash? Zsh? Python?
 
@@ -883,7 +1470,7 @@ print("Hello, World")
 
 ---
 
-## Basic Shell Syntax
+### Basic Shell Syntax
 
 ### Command Separators
 
@@ -921,7 +1508,7 @@ Only prints the message if `cd` failed.
 
 ---
 
-## Variables
+### Variables
 
 Variables store data that you can use throughout your script.
 
@@ -1023,11 +1610,11 @@ exit 0  # Return 0 (success) to the calling process
 
 ---
 
-## Arithmetic Operations
+### Arithmetic Operations
 
 There are multiple ways to do math in bash. **Pick one and stick with it** for consistency.
 
-### Method 1: `$(( ))` (Recommended)
+#### Method 1: `$(( ))` (Recommended)
 
 ```bash
 #!/bin/bash
@@ -1049,7 +1636,7 @@ echo $((num ** 2))     # Prints: 16 (exponentiation)
 **Pros:** Built into bash, fast, clean syntax  
 **Cons:** Integer-only (no decimals)
 
-### Method 2: `expr`
+#### Method 2: `expr`
 
 ```bash
 #!/bin/bash
@@ -1062,7 +1649,7 @@ expr $num \* 5     # Prints: 20 (note the backslash before *)
 **Pros:** Traditional, works in older shells  
 **Cons:** Awkward syntax, needs escaping for `*`
 
-### Method 3: `bc` (For Floating Point)
+#### Method 3: `bc` (For Floating Point)
 
 ```bash
 #!/bin/bash
@@ -1079,9 +1666,9 @@ echo "scale=2; 10/3" | bc   # Prints: 3.33 (2 decimal places)
 
 ---
 
-## Logical Operations and Conditionals
+### Logical Operations and Conditionals
 
-### Exit Code Testing
+#### Exit Code Testing
 
 ```bash
 #!/bin/bash
@@ -1090,18 +1677,18 @@ true ; echo $?    # Prints: 0
 false ; echo $?   # Prints: 1
 ```
 
-### Logical Operators
+#### Logical Operators
 
 ```bash
 true && echo "True"     # Prints: True (because true succeeds)
 false || echo "False"   # Prints: False (because false fails)
 ```
 
-### Comparison Operators
+#### Comparison Operators
 
 There are TWO syntaxes for comparisons in bash. **Stick to one.**
 
-#### Option 1: `[[ ]]` with Comparison Operators (Modern, Recommended)
+##### Option 1: `[[ ]]` with Comparison Operators (Modern, Recommended)
 
 **For integers:**
 ```bash
@@ -1128,7 +1715,7 @@ There are TWO syntaxes for comparisons in bash. **Stick to one.**
 [[ 5 > 3 ]] ; echo $?    # Prints: 0 (true)
 ```
 
-#### Option 2: `test` Command (Traditional)
+##### Option 2: `test` Command (Traditional)
 
 ```bash
 test 1 -le 5 ; echo $?   # Prints: 0 (true)
@@ -1142,7 +1729,7 @@ test 10 -lt 5 ; echo $?  # Prints: 1 (false)
 
 **My recommendation:** Use `[[ ]]` (double brackets). It's more powerful and less error-prone than `[ ]` or `test`.
 
-### File Test Operators
+#### File Test Operators
 
 Check file properties:
 
@@ -1171,11 +1758,11 @@ test -x /usr/bin/ls ; echo $?    # Is it executable? (0 = yes)
 
 ---
 
-## Positional Parameters (Command-Line Arguments)
+### Positional Parameters (Command-Line Arguments)
 
 When you run a script with arguments, bash provides special variables to access them.
 
-### Special Variables
+#### Special Variables
 
 ```bash
 #!/bin/bash
@@ -1190,7 +1777,7 @@ When you run a script with arguments, bash provides special variables to access 
 # ... and so on
 ```
 
-### Example Script
+#### Example Script
 
 ```bash
 #!/bin/bash
@@ -1216,7 +1803,7 @@ First argument: hello
 Second argument: world
 ```
 
-### `$*` vs `$@`
+#### `$*` vs `$@`
 
 **`$*`** - Treats all arguments as a single string:
 ```bash
@@ -1241,11 +1828,11 @@ done
 
 ---
 
-## Functions
+### Functions
 
 Functions let you organize code into reusable blocks.
 
-### Basic Function
+#### Basic Function
 
 ```bash
 #!/bin/bash
@@ -1266,7 +1853,7 @@ function Hello() {
 
 Both work the same. Pick one style and be consistent.
 
-### Functions with Return Values
+#### Functions with Return Values
 
 ```bash
 #!/bin/bash
@@ -1300,7 +1887,7 @@ sum=$(Add 5 3)  # Capture the output
 echo "Sum: $sum"  # Prints: Sum: 8
 ```
 
-### Function Arguments
+#### Function Arguments
 
 Functions can take arguments like scripts:
 
@@ -1317,9 +1904,9 @@ Greet "World"    # Prints: Hello, World!
 
 ---
 
-## Reading User Input
+### Reading User Input
 
-### Basic `read` Command
+#### Basic `read` Command
 
 ```bash
 #!/bin/bash
@@ -1334,7 +1921,7 @@ echo "Hello, $name!"
 2. Waits for user to type and press Enter
 3. Stores input in variable `name`
 
-### `read` with Inline Prompt
+#### `read` with Inline Prompt
 
 ```bash
 #!/bin/bash
@@ -1345,7 +1932,7 @@ echo "Hello, $name!"
 
 **`-p` flag:** Display prompt on same line as input
 
-### Reading Multiple Variables
+#### Reading Multiple Variables
 
 ```bash
 #!/bin/bash
@@ -1357,7 +1944,7 @@ echo "Hello, $first $last!"
 Input: `Mahmoud Xyz`  
 Output: `Hello, Mahmoud Xyz!`
 
-### Reading Passwords (Securely)
+#### Reading Passwords (Securely)
 
 ```bash
 #!/bin/bash
@@ -1372,7 +1959,7 @@ echo "Password received (length: ${#password})"
 
 **Security note:** This hides the password from screen, but it's still in memory as plain text. For real password handling, use dedicated tools.
 
-### Reading from Files
+#### Reading from Files
 
 ```bash
 #!/bin/bash
@@ -1387,7 +1974,7 @@ Reads `/etc/passwd` line by line.
 ---
 
 
-## Best Practices
+### Best Practices
 
 1. **Always use shebang:** `#!/usr/bin/env bash`
 2. **Use `set -e`:** Stop on errors
@@ -1399,7 +1986,7 @@ Reads `/etc/passwd` line by line.
 8. **Use functions:** Break complex scripts into smaller pieces
 9. **Test thoroughly:** Run scripts in safe environment first
 
-### The Holy Trinity of Safety
+#### The Holy Trinity of Safety
 
 ```bash
 #!/usr/bin/env bash
@@ -1416,6 +2003,6 @@ set -euo pipefail
 
 **These notes contain NO copied course materials.** Everything here is my personal understanding and recitation of concepts, synthesized from publicly available resources (bash documentation, shell scripting tutorials, Linux guides).
 
-This is my academic work—how I've processed and reorganized information from legitimate sources. I take full responsibility for any errors in my understanding.
+This is my academic work, how I've processed and reorganized information from legitimate sources. I take full responsibility for any errors in my understanding.
 
 **If you believe any content violates copyright, contact me at mahmoudahmedxyz@gmail.com and I'll remove it immediately.**
