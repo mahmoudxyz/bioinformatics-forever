@@ -637,7 +637,8 @@ Each user has its ID, shell, environmental vars and home dir.
 
 ---
 
-## File Management
+
+## More on Navigating the Filesystem
 
 The root is like "C" in Windows.
 
@@ -649,6 +650,14 @@ Commands:
 - `ls -lr`
 - `tree`
 - `stat`
+
+### Shell Globbing (Wildcards)
+* - matches any characters
+? - matches any single character
+echo * - display a list of files in the current directory
+echo *.txt - display a list of files in the current directory with the .txt extension
+echo b?at - display a list of files in the current directory that start with b and end with at
+
 
 ### File Structure
 
@@ -680,6 +689,130 @@ A file is three things:
 There's no link between the hierarchy of directories and their location on the disk.
 
 For more details, see: [Linux Foundation FHS 3.0](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html)
+
+
+## File Management
+
+### [1] grep
+
+This command to print lines matching pattern
+
+Let's create a file to try examples on it:
+```
+echo -e "root\nhello\nroot\nRoot" >> file
+
+```
+
+Now let's use grep to search for the word root in this file:
+
+```
+$ grep root file
+```
+
+output:
+```
+root
+root
+```
+
+You can search for anything excluding the root word:
+
+```
+$ grep -v root file
+```
+
+output:
+```
+hello
+Root
+```
+
+You can search ingoring the case:
+
+```
+$ grep -i root file
+```
+
+result:
+```
+root
+root
+Root
+```
+You can also use [REGEX](https://regexlearn.com/learn/regex101):
+```
+$ grep -i r. file
+```
+
+result:
+```
+root
+root
+Root
+```
+
+### [2] less
+
+to page through a file (an alternative to more)
+
+-- use with /word to search for a word in the file
+-- use with ?word to search backwards for a word in the file
+-- use with n to go to the next occurrence of the word
+-- use with N to go to the previous occurrence of the word
+-- use with q to quit the file
+
+### [3] diff
+
+compare files line by line
+
+### [4] file
+
+determine file type
+```
+$ file file
+file: ASCII text
+```
+
+### [5] find and locate
+
+search for files in a directory hierarchy
+
+### [6] head and tail
+
+head - output the first part of files
+head /usr/share/dict/words - display the first 10 lines of the file /usr/share/dict/words
+head -n 20 /usr/share/dict/words - display the first 20 lines of the file /usr/share/dict/words
+
+tail - output the last part of files
+tail /usr/share/dict/words - display the last 10 lines of the file /usr/share/dict/words
+tail -n 20 /usr/share/dict/words - display the last 20 lines of the file /usr/share/dict/words
+
+### [7] mv 
+
+mv - move (rename) files
+mv file1 file2 - rename file1 to file2
+
+mv - move (rename) files
+mv file1 file2 - rename file1 to file2
+
+
+### [8] cp
+
+cp - copy files and directories cp file1 file2 - copy file1 to file2
+
+
+
+### [9] tar 
+
+archive utility
+
+### [10] gzip 
+
+
+### [11] mount and unmount 
+
+what is the meaning of mounitng
+
 
 ## Managing Linux Processes
 
@@ -2006,3 +2139,9 @@ set -euo pipefail
 This is my academic work, how I've processed and reorganized information from legitimate sources. I take full responsibility for any errors in my understanding.
 
 **If you believe any content violates copyright, contact me at mahmoudahmedxyz@gmail.com and I'll remove it immediately.**
+
+## References
+
+[1] Ahmed Sami (Architect @ Microsoft).  
+*Linux for Data Engineers* (Arabic – Egyptian Dialect), 11h 30m.  
+[YouTube](https://youtu.be/gojeTqXdBH0?si=JzOeNhJflzgJo1uo)
