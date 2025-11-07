@@ -5,6 +5,8 @@ Hello, I'm Mahmoud, and these are my notes. Since you're reading something I've 
 This is me. My cousin captured this moment before they passed away.
 ![alt text](images/me-with-cow.png)
 
+Want to know more about me? Check out my blog at [mahmoud.ninja](https://mahmoud.ninja)
+
 
 # A Word About AI
 
