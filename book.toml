@@ -18,3 +18,5 @@ additional-js  = ["theme/pagetoc.js"]
 
 
 
+[output.html.playground]
+editable = true
