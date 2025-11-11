@@ -125,10 +125,6 @@ while True:
 
     display_game(xo_arr)
 
-
-    x_count =  xo_arr.count("X")
-    o_count =  xo_arr.count("O")
-
     o_win = is_win("O")
     x_win = is_win("X")
 
