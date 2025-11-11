@@ -6,8 +6,10 @@ Want to know more about me? Check out my blog at [mahmoud.ninja](https://mahmoud
 
 
 # A Word About AI
-
-I don't use AI for learning or creating the core content in these notes. If I did, there would be no point in making this as anyone can ask ChatGPT or Claude for explanations.
+    
+I don't use AI for learning or creating the core content in these notes. If I did,
+there would be no point in making this as anyone can ask ChatGPT or Claude for
+explanations.
 
 **What I may use AI for:**
 - Proofreading and fixing grammar or typos
