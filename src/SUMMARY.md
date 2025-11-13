@@ -31,10 +31,12 @@
     - [Sanger Sequencing](./ag/sanger.md)
 - [Lec2](./ag/lec2.md)
     - [Ion Torrent](./ag/ion-torrent.md)
-    - [ABI SOLiD](./ag/abi-solid.md)
-- [Illumina](./ag/illumina.md)
+
 
 - [Lec3](./ag/lec3.md)
+  - [ABI SOLiD](./ag/abi-solid.md)
+  - [Illumina](./ag/illumina.md)
+
 -----------
 
 [Italiano](italiano)

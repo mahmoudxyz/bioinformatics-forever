@@ -71,11 +71,15 @@ Okay, which one should I install now? Heh... There are a ton of options and you 
 
 Ubuntu is the most popular for development and data engineering. But remember, in all cases, you'll be using the terminal a lot. So install Ubuntu, maybe in dual boot, and keep Windows if possible so you don't regret it later and blame me.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zIdv2NDRExI?si=ZPRzGfcmexaX9EEC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ## The Terminal
 
 Yes, this is what matters for us. Every distro will come with a default terminal but you can install others if you want. Anyway, open the terminal from the apps or just click `Ctrl+Alt+T`.
+
+![alt text](images/terminal-g.png)
 
 Zoom in using `Ctrl+Shift++` or out using `Ctrl+-`
 
@@ -291,7 +295,7 @@ file1  python/  testdir/
 
 ### [8] touch
 
-This command is for creating a new file inside a folder.
+This command is for creating a new file.
 
 ```bash
 $ mkdir new-dir
@@ -491,7 +495,15 @@ You can find `vi` in almost every distro. The shortcuts for it are many and hard
 
 Simply put: `vi` is just two things, **insert mode** and **command mode**. The default when you open a file for the first time is the command mode. To start writing something you have to enter the insert mode by pressing `i`.
 
+You might wonder why vi uses keyboard letters for navigation instead of arrow keys. Simple answer: arrow keys didn't exist on keyboards when vi was created in 1976. You're the lucky generation with arrow keys, the original vi users had to make do with what they had.
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ggSyF1SVFr4?si=Lws6OjRDemLxvbZJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 `nano` on the other hand is more simple and easier to use and edit files with.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g2PU--TctAM?si=xW649UAhxQwdoFTp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Use any editor, probably `vi` or `nano` and start practicing on one.
 
@@ -503,6 +515,13 @@ Use any editor, probably `vi` or `nano` and start practicing on one.
 The **shell** is the thing that actually interprets your commands. It's the engine doing the work. File manipulation, running programs, printing text. That's all the shell.
 
 The **terminal** is just the program that opens a window so you can talk to the shell. It's the middleman, the GUI wrapper, the pretty face.
+
+<div class="warning">
+Historical note:
+
+This distinction mattered more when terminals were physical devices,    actual hardware connected to mainframes. Today, we use terminal *emulators* (software), so the difference is mostly semantic. For practical purposes, just know: the shell runs your commands, the terminal displays them.
+
+</div>
 
 ## Pipes, Filters and Redirection
 
@@ -640,47 +659,306 @@ Each user has its ID, shell, environmental vars and home dir.
 
 ## More on Navigating the Filesystem
 
-The root is like "C" in Windows.
+### Absolute vs Relative Paths
 
-- **Absolute path:** from root
-- **Relative path:** relative to your current path
+The **root directory** (`/`) is like "C:\" in Windows, the top of the filesystem hierarchy.
 
-Commands:
-- `ls -lhd`
-- `ls -lr`
-- `tree`
-- `stat`
+**Absolute path:** Starts from root, always begins with `/`
+```bash
+/home/mahmoudxyz/Documents/notes.txt
+/etc/passwd
+/usr/bin/python3
+```
+
+**Relative path:** Starts from your current location
+```bash
+Documents/notes.txt          # Relative to current directory
+../Desktop/file.txt          # Go up one level, then into Desktop
+../../etc/hosts              # Go up two levels, then into etc
+```
+
+**Special directory references:**
+- `.` = current directory
+- `..` = parent directory
+- `~` = your home directory
+- `-` = previous directory (used with `cd -`)
+
+
+
+### Useful Navigation Commands
+
+**`ls -lh`** - List in long format with human-readable sizes
+```bash
+$ ls -lh
+-rw-r--r-- 1 mahmoud mahmoud 1.5M Nov 10 14:23 data.csv
+-rw-r--r-- 1 mahmoud mahmoud  12K Nov 10 14:25 notes.txt
+```
+
+**`ls -lhd`** - Show directory itself, not contents
+```bash
+$ ls -lhd /home/mahmoud
+drwxr-xr-x 47 mahmoud mahmoud 4.0K Nov 10 12:00 /home/mahmoud
+```
+
+**`ls -lR`** - Recursive listing (all subdirectories)
+```bash
+$ ls -lR
+./Documents:
+-rw-r--r-- 1 mahmoud mahmoud 1234 Nov 10 14:23 file1.txt
+
+./Documents/Projects:
+-rw-r--r-- 1 mahmoud mahmoud 5678 Nov 10 14:25 file2.txt
+```
+
+**`tree`** - Visual directory tree (may need to install)
+```bash
+$ tree
+.
+├── Documents
+│   ├── file1.txt
+│   └── Projects
+│       └── file2.txt
+├── Downloads
+└── Desktop
+```
+
+**`stat`** - Detailed file information
+```bash
+$ stat notes.txt
+  File: notes.txt
+  Size: 1234       Blocks: 8          IO Block: 4096   regular file
+Device: 803h/2051d  Inode: 12345678   Links: 1
+Access: 2024-11-10 14:23:45.123456789 +0100
+Modify: 2024-11-10 14:23:45.123456789 +0100
+Change: 2024-11-10 14:23:45.123456789 +0100
+```
+
+Shows: size, inode number, links, permissions, timestamps
+
 
 ### Shell Globbing (Wildcards)
-* - matches any characters
-? - matches any single character
-echo * - display a list of files in the current directory
-echo *.txt - display a list of files in the current directory with the .txt extension
-echo b?at - display a list of files in the current directory that start with b and end with at
 
+Wildcards let you match multiple files with patterns.
 
-### File Structure
+**`*` - Matches any number of any characters (including none)**
+```bash
+$ echo *                    # All files in current directory
+$ echo *.txt                # All files ending with .txt
+$ echo file*                # All files starting with "file"
+$ echo *data*               # All files containing "data"
+```
 
-A file is three things:
-1. **Filename**
-2. **Data block:** the content in the memory or on the disk
-3. **inode:** metadata of the file (command: `ls -i`)
+**`?` - Matches exactly one character**
+```bash
+$ echo b?at                 # Matches: boat, beat, b1at, b@at
+$ echo file?.txt            # Matches: file1.txt, fileA.txt
+$ echo ???                  # Matches any 3-character filename
+```
 
-**Q:** What if you deleted the original in both cases?
+**`[...]` - Matches any character inside brackets**
+```bash
+$ echo file[123].txt        # Matches: file1.txt, file2.txt, file3.txt
+$ echo [a-z]*               # Files starting with lowercase letter
+$ echo [A-Z]*               # Files starting with uppercase letter
+$ echo *[0-9]               # Files ending with a digit
+```
 
-### Links
+**`[!...]` - Matches any character NOT in brackets**
+```bash
+$ echo [!a-z]*              # Files NOT starting with lowercase letter
+$ echo *[!0-9].txt          # .txt files NOT ending with a digit before extension
+```
 
-**Link:** shortcut in Windows
-
-**Hard link:** another filename for the same inode and same data block (like a box with two labels on it, the two labels will not change the content of the file)
-- Command: `ln original-file hardlink`
-- Nothing happens to the hardlink file when original is deleted
-
-**Soft link:** shortcut in Windows, note the inode is different here
-- Command: `ln -s original-file softlink`
-- Label exists but file content is deleted when original is deleted
+**Practical examples:**
+```bash
+$ ls *.jpg *.png            # All image files (jpg or png)
+$ rm temp*                  # Delete all files starting with "temp"
+$ cp *.txt backup/          # Copy all text files to backup folder
+$ mv file[1-5].txt archive/ # Move file1.txt through file5.txt
+```
 
 ---
+
+### File Structure: The Three Components
+
+Every file in Linux consists of three parts:
+
+#### 1. Filename
+The human-readable name you see and use.
+
+#### 2. Data Block
+The actual content stored on disk, the file's data.
+
+#### 3. Inode (Index Node)
+Metadata about the file stored in a data structure. Contains:
+- File size
+- Owner (UID) and group (GID)
+- Permissions
+- Timestamps (access, modify, change)
+- Number of hard links
+- Pointers to data blocks on disk
+- **NOT the filename** (filenames are stored in directory entries)
+
+**View inode number:**
+```bash
+$ ls -i
+12345678 file1.txt
+12345679 file2.txt
+```
+
+**View detailed inode information:**
+```bash
+$ stat file1.txt
+```
+
+---
+
+### Links: Hard Links vs Soft Links
+
+#### What is a Link?
+
+A link is a way to reference the same file from multiple locations. Think of it like shortcuts in Windows, but with two different types.
+
+---
+
+#### Hard Links
+
+**Concept:** Another filename pointing to the **same inode and data**.
+
+It's like having **two labels on the same box**. Both names are equally valid, neither is "original" or "copy."
+
+**Create a hard link:**
+```bash
+$ ln original.txt hardlink.txt
+```
+
+**What happens:**
+- Both filenames point to the same inode
+- Both have equal status (no "original")
+- Changing content via either name affects both (same data)
+- File size, permissions, content are identical (because they ARE the same file)
+
+**Check with `ls -i`:**
+```bash
+$ ls -i
+12345678 original.txt
+12345678 hardlink.txt    # Same inode number!
+```
+
+**What if you delete the original?**
+```bash
+$ rm original.txt
+$ cat hardlink.txt        # Still works! Data is intact
+```
+
+**Why?** The data isn't deleted until **all hard links** are removed. The inode keeps a link count, only when it reaches 0 does the system delete the data.
+
+**Limitations of hard links:**
+- **Cannot cross filesystems** (different partitions/drives)
+- **Cannot link to directories** (to prevent circular references)
+- Both files must be on the same partition
+
+---
+
+#### Soft Links (Symbolic Links)
+
+**Concept:** A special file that **points to another filename**, like a shortcut in Windows.
+
+The soft link has its **own inode**, separate from the target file.
+
+**Create a soft link:**
+```bash
+$ ln -s original.txt softlink.txt
+```
+
+**What happens:**
+- `softlink.txt` has a different inode
+- It contains the **path** to `original.txt`
+- Reading `softlink.txt` automatically redirects to `original.txt`
+
+**Check with `ls -li`:**
+```bash
+$ ls -li
+12345678 -rw-r--r-- 1 mahmoud mahmoud 100 Nov 10 14:00 original.txt
+12345680 lrwxrwxrwx 1 mahmoud mahmoud  12 Nov 10 14:01 softlink.txt -> original.txt
+```
+
+Notice:
+- Different inode numbers
+- `l` at the start (link file type)
+- `->` shows what it points to
+
+**What if you delete the original?**
+```bash
+$ rm original.txt
+$ cat softlink.txt        # Error: No such file or directory
+```
+
+The softlink still exists, but it's now a **broken link** (points to nothing).
+
+**Advantages of soft links:**
+- **Can cross filesystems** (different partitions/drives)
+- **Can link to directories**
+- Can link to files that don't exist yet (forward reference)
+
+---
+
+### Hard Link vs Soft Link: Summary
+
+| Feature | Hard Link | Soft Link |
+|---------|-----------|-----------|
+| **Inode** | Same as original | Different (own inode) |
+| **Content** | Points to data | Points to filename |
+| **Delete original** | Link still works | Link breaks |
+| **Cross filesystems** | No | Yes |
+| **Link to directories** | No | Yes |
+| **Shows target** | No (looks like normal file) | Yes (`->` in `ls -l`) |
+| **Link count** | Increases | Doesn't affect original |
+
+**When to use each:**
+
+**Hard links:**
+- Backup/versioning within same filesystem
+- Ensure file persists even if "original" name is deleted
+- Save space (no duplicate data)
+
+**Soft links:**
+- Link across different partitions
+- Link to directories
+- Create shortcuts for convenience
+- When you want the link to break if target is moved/deleted (intentional dependency)
+
+---
+
+### Practical Examples
+
+**Hard link example:**
+```bash
+$ echo "Important data" > data.txt
+$ ln data.txt backup.txt              # Create hard link
+$ rm data.txt                         # "Original" deleted
+$ cat backup.txt                      # Still accessible!
+Important data
+```
+
+**Soft link example:**
+```bash
+$ ln -s /usr/bin/python3 ~/python     # Shortcut to Python
+$ ~/python --version                  # Works!
+Python 3.10.0
+$ rm /usr/bin/python3                 # If Python is removed
+$ ~/python --version                  # Link breaks
+bash: ~/python: No such file or directory
+```
+
+**Link to directory (only soft link):**
+```bash
+$ ln -s /var/log/nginx ~/nginx-logs   # Easy access to logs
+$ cd ~/nginx-logs                     # Navigate via link
+$ pwd                                 # Shows real path
+/var/log/nginx
+```
+
 
 ## Understanding the Filesystem Hierarchy Standard
 
