@@ -39,7 +39,9 @@
 
 -----------
 
-[Italiano](italiano)
+# Italiano
+
+- [Day1](it/day1.md)
 
 -----------
 
