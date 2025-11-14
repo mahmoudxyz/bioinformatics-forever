@@ -5,6 +5,16 @@ Hello, I'm Mahmoud, and these are my notes. Since you're reading something I've 
 Want to know more about me? Check out my blog at [mahmoud.ninja](https://mahmoud.ninja)
 
 
+## A Personal Note
+
+I didn't make the wrong choice coming here. It's just a matter of time. And if everything seems very easy and known already, why am I here? I'm here to feel this, to feel that I don't belong here. To make the complex things (the prof calls them "simple") more easier and understandable without using AI. I hate using AI when learning something new.
+
+I don't know where I should start, but I should start somewhere and learn recursively, not in order.
+
+I love three things in my life: **viruses, genetics, and databases**. I hoped they would be four, but yeah, that's life.
+
+Anyway, I will never fail with something I'm keen on and love. Hoping this will not be love from one way. I am talking about genetics here.
+
 # A Word About AI
     
 I don't use AI for learning or creating the core content in these notes. If I did,
