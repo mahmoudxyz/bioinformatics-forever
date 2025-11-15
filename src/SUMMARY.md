@@ -13,10 +13,15 @@
 # Lab of BIOIFNO
 
 - [Intro](./lbi/intro.md)
+- [Sequence alignment](./lbi/seq-alig.md)
+
 
 # Bio-Databases
 
 - [Intro](./bmdb/intro.md)
+- [PubMed/MeSH](./bmdb/pubmed-mesh.md)
+- [PDB](./bmdb/pdb.md)
+
 
 # BIOANALYTICAL
 
